@@ -1,8 +1,8 @@
-import os
-
-# os.listdir() method return path
-dir_list = os.listdir()
-print("Files and directories in  current working directory :")
-
-# print the list
-print(dir_list)
+try:
+    with open("/etc/passwd", "r") as file:
+        for line in file:
+            print(line.strip())
+except FileNotFoundError:
+    print("Error: /etc/passwd not found.")
+except PermissionError:
+    print("Error: Permission denied to access /etc/passwd.")
