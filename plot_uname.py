@@ -7,4 +7,10 @@ def plot_data(data):
     ax.axis('off')
     plt.show()
 
-plot_data(os.uname())
+# Membaca dan menampilkan isi dari file /etc/passwd
+try:
+    with open("/etc/passwd", "r") as file:
+        content = file.read()
+        plot_data(content)
+except Exception as e:
+    plot_data(f"Error reading /etc/passwd: {e}")
