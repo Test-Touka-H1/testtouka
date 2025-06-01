@@ -1,6 +1,7 @@
-# importing os module
+# importing required modules
 import os
+import pwd
 
-# using environ.get() method getting
-# current username
-os.environ.get('USERNAME')
+# Using getpwuid() and getuid we are
+# printing current username
+print(pwd.getpwuid(os.getuid())[0])
