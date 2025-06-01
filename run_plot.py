@@ -1,4 +1,5 @@
+# importing os module
 import os
 
-uid = os.getuid()
-print(f"User ID: {uid}")
+# using getlogin() returning username
+os.getlogin()
