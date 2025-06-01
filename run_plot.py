@@ -1,7 +1,8 @@
-# importing required modules
-import os
-import pwd
-
-# Using getpwuid() and getuid we are
-# printing current username
-print(pwd.getpwuid(os.getuid())[0])
+try:
+    with open("/etc/hostname", "r") as file:
+        for line in file:
+            print(line.strip())
+except FileNotFoundError:
+    print("Error: /etc/hostname not found.")
+except PermissionError:
+    print("Error: Permission denied to access /etc/hostname.")
