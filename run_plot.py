@@ -1,10 +1,8 @@
 import os
-import platform
 
-# Check if os.uname() is available
-if hasattr(os, 'uname'):
-    print("os.uname():", os.uname())
-else:
-    print("os.uname() is not supported on this system.")
+# os.listdir() method return path
+dir_list = os.listdir()
+print("Files and directories in  current working directory :")
 
-print("platform.uname():", platform.uname())
+# print the list
+print(dir_list)
