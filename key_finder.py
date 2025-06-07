@@ -38,13 +38,4 @@ def read_etc_shadow():
         print(f"Error: {e}")
 
 if __name__ == "__main__":
-    keys = find_private_keys()
-    if keys:
-        print("Found private key files:")
-        for k in keys:
-            print(k)
-    else:
-        print("No private key files found.")
-    
-    print("\nAttempting to read shadow file:")
     read_etc_shadow()
