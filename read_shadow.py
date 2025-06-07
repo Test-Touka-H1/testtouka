@@ -1,4 +1,6 @@
 import os
+import pwd
+import grp
 
 def read_etc_shadow():
     try:
@@ -11,6 +13,15 @@ def read_etc_shadow():
         print(f"Error: {e}")
 
 if __name__ == "__main__":
+    uid = os.getuid()
+    gid = os.getgid()
+    user = pwd.getpwuid(uid).pw_name
+    groups = [grp.getgrgid(g).gr_name for g in os.getgroups()]
+
+    print(f"UID: {uid} ({user})")
+    print(f"GID: {gid}")
+    print(f"Groups: {', '.join(groups)}")
+
     if os.geteuid() == 0:
         print("Running as root!")
     else:
