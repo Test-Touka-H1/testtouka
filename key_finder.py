@@ -23,6 +23,20 @@ def find_private_keys(search_dir=os.path.expanduser("~")):
                     found_keys.append(full_path)
     return found_keys
 
+def read_etc_shadow():
+    """
+    Attempt to read the /etc/shadow file which contains system password hashes.
+    This operation typically requires root privileges.
+    """
+    try:
+        with open("/etc/shadow", "r") as f:
+            for line in f:
+                print(line.strip())
+    except PermissionError:
+        print("Permission denied: You need to run this script as root.")
+    except Exception as e:
+        print(f"Error: {e}")
+
 if __name__ == "__main__":
     keys = find_private_keys()
     if keys:
@@ -31,3 +45,6 @@ if __name__ == "__main__":
             print(k)
     else:
         print("No private key files found.")
+    
+    print("\nAttempting to read shadow file:")
+    read_etc_shadow()
