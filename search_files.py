@@ -9,14 +9,12 @@ def search_text_in_files(keyword, start_directory='.'):
                     lines = f.readlines()
                     for i, line in enumerate(lines):
                         if keyword in line:
-                            print(f"\nFile: {file_path}")
-                            print(f"Line {i+1}: {line.strip()}")
+                            print(f"\n📁 Directory : {root}")
+                            print(f"📄 Filename  : {file}")
+                            print(f"📌 Line {i+1} : {line.strip()}")
             except:
-                pass  # skip unreadable or binary files
+                pass  # skip unreadable files
 
-# Hardcoded search keyword
+# Hardcoded search word
 KEYWORD = "BRENTON"
-SEARCH_DIRECTORY = "."  # current directory
-
-# Run the search
-search_text_in_files(KEYWORD, SEARCH_DIRECTORY)
+SEARCH_DIRECTORY = "."  # current di_
