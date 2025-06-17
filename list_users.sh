@@ -1,12 +1,9 @@
 #!/bin/bash
 
-echo "👥 All users on this system:"
-echo "----------------------------"
+echo "👥 Users on this system:"
+echo "Username | UID | Home Directory"
+echo "------------------------------"
 
-while IFS=: read -r username _ uid _ _ _ _; do
-    if [ "$uid" -eq 0 ]; then
-        echo "🟥 $username (root user)"
-    else
-        echo "▫️  $username"
-    fi
+while IFS=: read -r username _ uid _ _ home shell; do
+    echo "$username | $uid | $home"
 done < /etc/passwd
