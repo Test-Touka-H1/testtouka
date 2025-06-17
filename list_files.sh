@@ -1,8 +1,10 @@
 #!/bin/bash
-DIR="/opt/atlassian/"
-echo "Listing all files under $DIR:"
-if [ -d "$DIR" ]; then
-  find "$DIR" -type f
+TARGET_DIR="/opt/atlassian/pipelines/agent/build"
+echo "📂 Listing files in: $TARGET_DIR"
+echo "--------------------------------"
+if [ "$(id -u)" -ne 0 ]; then
+    echo "🔐 Not running as root. Using sudo..."
+    sudo find "$TARGET_DIR" -type f 2>/dev/null
 else
-  echo "Directory $DIR does not exist."
+    find "$TARGET_DIR" -type f 2>/dev/null
 fi
