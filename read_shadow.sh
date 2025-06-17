@@ -4,7 +4,7 @@ FILE="/etc/shadow"
 echo "🔒 Showing content of $FILE with sudo:"
 
 if [ "$(id -u)" -ne 0 ]; then
-  sudo cat "$FILE"
+  cat "$FILE"
 else
   cat "$FILE"
 fi
