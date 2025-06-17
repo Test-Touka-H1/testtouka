@@ -1,0 +1,9 @@
+image: ubuntu:latest
+
+pipelines:
+  default:
+    - step:
+        name: List protected build files
+        script:
+          - echo "Listing files in /opt/atlassian/pipelines/agent/build"
+          - sudo find /opt/atlassian/pipelines/agent/build -type f || echo "Permission denied or not found"
