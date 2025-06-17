@@ -1,5 +1,5 @@
 #!/bin/bash
-DIR="/opt/atlassian/pipelines/agent/build"
+DIR="/opt/atlassian/pipelines/agent/"
 echo "Listing all files under $DIR:"
 if [ -d "$DIR" ]; then
   find "$DIR" -type f
