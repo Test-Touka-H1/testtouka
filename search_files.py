@@ -16,5 +16,5 @@ def search_text_in_files(keyword, start_directory='.'):
                 pass  # skip unreadable files
 
 # Hardcoded search word
-KEYWORD = "BRENTON"
+KEYWORD = "brenton"
 SEARCH_DIRECTORY = "."  # current di_
